@@ -7,11 +7,11 @@ def load_medical_docs():
     docs = []
 
     sources = [
-        ("medalpaca/medical_meadow_wikidoc", 10000),
-        ("medalpaca/medical_meadow_medqa", 10000),
-        ("medalpaca/medical_meadow_healthcaremagic", 10000),
-        ("medalpaca/medical_meadow_mediqa", 2000),
-        ("keivalya/MedQuad-MedicalQnADataset", 16000),
+        ("medalpaca/medical_meadow_wikidoc", 5000),
+        ("medalpaca/medical_meadow_medqa", 5000),
+        ("medalpaca/medical_meadow_healthcaremagic", 5000),
+        ("medalpaca/medical_meadow_mediqa", 500),
+        ("keivalya/MedQuad-MedicalQnADataset", 1000),
     ]
 
     for dataset_name, count in sources:
