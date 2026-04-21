@@ -60,10 +60,3 @@ When asked non-medical questions (e.g., "What is AI?"), the system maintains str
 
 
 ---
-
-##  Installation & Usage
-
-1. **Clone the Repo**
-   ```bash
-   git clone [https://github.com/yourusername/medical-rag-application.git](https://github.com/yourusername/medical-rag-application.git)
-   cd medical-rag-application
