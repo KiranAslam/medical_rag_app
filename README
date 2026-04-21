@@ -1,0 +1,69 @@
+# Medical RAG Application 
+### Retrieval-Augmented Generation for Medical Knowledge Search
+
+##  Project Overview
+This project presents a domain-specific **Medical Knowledge Search and Explanation System** built using **Retrieval-Augmented Generation (RAG)**. The application allows users to search for any disease or medical condition and receive a structured, comprehensive medical report. 
+
+Unlike generic AI chatbots (such as ChatGPT), this system is grounded in a curated medical knowledge base, ensuring responses are accurate, relevant, and consistently formatted.
+
+### Key Features
+* **Domain-Restricted:** The system strictly enforces medical boundaries—it will politely refuse non-medical questions.
+* **Structured Reports:** Generates consistent clinical sections: *Overview, Signs & Symptoms, Risk Factors, Diagnosis, Treatment, and Prevention*.
+* **Semantic Search:** Uses FAISS for high-speed retrieval from ~6,000 medical documents.
+* **Open Source LLM:** Powered by the `nvidia/nemotron-3-super-120b` via OpenRouter (Free tier).
+
+---
+
+##  Technology Stack
+
+| Component | Tool / Library |
+| :--- | :--- |
+| **Frontend UI** | Streamlit (Python) |
+| **Vector Database** | FAISS (Facebook AI Similarity Search) |
+| **Embeddings Model** | `sentence-transformers/all-MiniLM-L6-v2` |
+| **LLM API** | OpenRouter (nvidia/nemotron-3-super-120b) |
+| **Framework** | LangChain + LangChain-Community |
+| **Medical Dataset** | medalpaca (wikidoc + medqa + mediqa + MedQuad) |
+
+---
+
+##  RAG Pipeline Architecture
+The system processes every user query through the following workflow:
+
+1.  **User Input:** Disease name or medical question is entered into the Streamlit UI.
+2.  **Vectorization:** The query is converted into a vector embedding.
+3.  **Retrieval:** FAISS searches the database and retrieves the top 5 most relevant medical chunks.
+4.  **Augmentation:** Retrieved chunks are combined with the query into a structured medical prompt.
+5.  **Generation:** The LLM generates a structured report based on the retrieved context.
+
+---
+
+##  ChatGPT vs. Medical RAG System
+| Aspect | ChatGPT (Without RAG) | Medical RAG System |
+| :--- | :--- | :--- |
+| **Answer Source** | LLM training memory only | Retrieved medical docs + LLM |
+| **Output Format** | Conversational, unstructured | Structured Clinical Report |
+| **Accuracy** | May hallucinate or generalize | Grounded in real medical datasets |
+| **Domain Control** | Answers any question | Strictly Medical Queries Only |
+| **Off-topic Query** | Attempts to answer everything | Politely refuses non-medical queries |
+
+---
+
+##  System Comparison
+
+### 1. Medical RAG Response (Structured)
+The system retrieves relevant chunks and generates a fully structured clinical report.
+
+
+### 2. Out-of-Context Refusal
+When asked non-medical questions (e.g., "What is AI?"), the system maintains strict domain boundaries.
+
+
+---
+
+##  Installation & Usage
+
+1. **Clone the Repo**
+   ```bash
+   git clone [https://github.com/yourusername/medical-rag-application.git](https://github.com/yourusername/medical-rag-application.git)
+   cd medical-rag-application
